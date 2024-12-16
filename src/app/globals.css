@@ -9,5 +9,15 @@
 }
 
 body {
-  @apply bg-secondary text-gray-300 min-h-screen;
+  @apply bg-secondary text-gray-300 min-h-screen flex flex-col;
+}
+
+@layer components {
+  .current-page {
+    position: relative;
+  }
+  .current-page::before {
+    @apply absolute w-1 right-0 h-full bg-accent top-0 bottom-0;
+    content: "";
+  }
 }

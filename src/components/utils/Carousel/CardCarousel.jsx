@@ -1,10 +1,11 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import ChevronLeft from "@/../public/icons/chevron-left.svg";
 import ChevronRight from "@/../public/icons/chevron-right.svg";
 
 function CardCarousel({ children }) {
+  const [isOverflowing, setIsOverflowing] = useState(false);
   const wrapperRef = useRef(null);
 
   function scrollLeft() {
@@ -15,13 +16,22 @@ function CardCarousel({ children }) {
     wrapperRef.current?.scrollBy({ left: 200, behavior: "smooth" });
   }
 
-  function isOverflowing() {
+  function checkOverflow() {
     const element = wrapperRef.current;
 
-    if (element) return element.scrollWidth > element.clientWidth;
-
-    return false;
+    if (element) {
+      setIsOverflowing(element.scrollWidth > element.clientWidth);
+    }
   }
+
+  useEffect(() => {
+    checkOverflow();
+
+    window.addEventListener("resize", checkOverflow);
+    return () => {
+      window.removeEventListener("resize", checkOverflow);
+    };
+  }, []);
 
   return (
     <div className="grid relative">
@@ -29,7 +39,7 @@ function CardCarousel({ children }) {
         className="flex gap-4 overflow-x-auto no-scrollbar snap-x snap-proximity"
         ref={wrapperRef}
       >
-        {isOverflowing() && (
+        {isOverflowing && (
           <button
             type="button"
             className="absolute left-0 top-0 bottom-0 w-8 bg-black opacity-20 hover:opacity-50 transition-opacity hover:text-white cursor-pointer"
@@ -41,7 +51,7 @@ function CardCarousel({ children }) {
 
         {children}
 
-        {isOverflowing() && (
+        {isOverflowing && (
           <button
             type="button"
             className="absolute right-0 top-0 bottom-0 w-8 bg-black opacity-20 hover:opacity-50 transition-opacity hover:text-white cursor-pointer"

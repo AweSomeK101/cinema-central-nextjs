@@ -2,14 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+@layer base {
+  :root {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-secondary text-gray-300 min-h-screen flex flex-col;
+  }
 }
 
-body {
-  @apply bg-secondary text-gray-300 min-h-screen flex flex-col;
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
 }
 
 @layer components {
@@ -19,5 +33,11 @@ body {
   .current-page::before {
     @apply absolute w-1 right-0 h-full bg-accent top-0 bottom-0;
     content: "";
+  }
+  .line-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    @apply overflow-hidden;
   }
 }

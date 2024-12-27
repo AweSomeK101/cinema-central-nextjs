@@ -17,7 +17,7 @@ function ItemCard({ size = "md", slug, title, year, image }) {
           alt={title}
           width={imgSize[0]}
           height={imgSize[1]}
-          className="h-a w-full"
+          className="h-auto w-full"
         />
       </div>
       <div className="pt-1">

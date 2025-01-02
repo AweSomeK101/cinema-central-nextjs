@@ -7,7 +7,12 @@ function ItemListSlider({ items }) {
       {items &&
         items.map((item, index) => (
           <CardCarouselItem key={index}>
-            <ItemCard image={item.image} title={item.title} year={item.year} size="sm" />
+            <ItemCard
+              image={item.image}
+              primaryText={item.title}
+              secondaryText={item.year}
+              size="sm"
+            />
           </CardCarouselItem>
         ))}
     </CardCarousel>

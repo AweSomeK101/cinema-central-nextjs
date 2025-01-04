@@ -6,7 +6,12 @@ function ResultGrid({ items }) {
       <div className="flex flex-wrap gap-4">
         {items &&
           items.map((item, index) => (
-            <ItemCard image={item.image} title={item.title} year={item.year} key={index} />
+            <ItemCard
+              image={item.image}
+              primaryText={item.title}
+              secondaryText={item.year}
+              key={index}
+            />
           ))}
       </div>
     </section>

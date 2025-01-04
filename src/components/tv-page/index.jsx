@@ -10,7 +10,7 @@ const SHOWS = [
 
 function TV() {
   return (
-    <div className="my-6">
+    <div>
       <SectionList title="Now Airing" items={SHOWS} />
       <SectionList title="Popular Shows" items={SHOWS} />
       <SectionList title="Trending Shows" items={SHOWS} />

@@ -15,7 +15,7 @@ function NavButton({ href, children }) {
   return (
     <Link
       href={href}
-      className={`cursor-pointer grid place-items-center h-8 hover:text-accent ${
+      className={`cursor-pointer grid place-items-center h-8 pt-2 sm:pt-0 hover:text-accent ${
         isActive ? "current-page" : null
       }`}
     >

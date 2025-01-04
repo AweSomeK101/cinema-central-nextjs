@@ -14,7 +14,7 @@ const MOVIES = [
 
 function Movies() {
   return (
-    <div className="my-6">
+    <div>
       <SectionList title="Now Playing" items={MOVIES} />
       <SectionList title="Popular Movies" items={MOVIES} />
       <SectionList title="Trending Movies" items={MOVIES} />

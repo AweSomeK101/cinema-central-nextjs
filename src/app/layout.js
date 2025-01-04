@@ -15,9 +15,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <Header />
-        <div className="flex flex-grow gap-4">
+        <div className="flex flex-grow">
           <Sidebar />
-          <div className="flex-1">{children}</div>
+          <div className="flex-1 px-4 sm:px-6 py-4 mb-4">{children}</div>
         </div>
       </body>
     </html>

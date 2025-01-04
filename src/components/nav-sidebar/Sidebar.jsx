@@ -5,7 +5,7 @@ import NavButton from "./NavButton";
 
 function Sidebar() {
   return (
-    <nav className="flex flex-col gap-6 bg-black py-4 w-12">
+    <nav className="flex fixed sm:static bottom-0 sm:flex-col sm:justify-start justify-around sm:gap-6 bg-black sm:py-4 pb-2 w-full sm:w-12 z-10">
       <NavButton href="/movies">
         <FilmIcon alt="movies" />
       </NavButton>

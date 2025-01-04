@@ -1,19 +1,20 @@
 import FilmIcon from "@/../public/icons/film.svg";
 import SearchIcon from "@/../public/icons/search.svg";
 import TvIcon from "@/../public/icons/tv.svg";
+import NavButton from "./NavButton";
 
 function Sidebar() {
   return (
     <nav className="flex flex-col gap-6 bg-black py-4 w-12">
-      <div className="cursor-pointer grid place-items-center h-8 hover:text-accent current-page">
+      <NavButton href="/movies">
         <FilmIcon alt="movies" />
-      </div>
-      <div className="cursor-pointer grid place-items-center h-8 hover:text-accent">
+      </NavButton>
+      <NavButton href="/tv">
         <TvIcon alt="tv shows" />
-      </div>
-      <div className="cursor-pointer grid place-items-center h-8 hover:text-accent">
+      </NavButton>
+      <NavButton href="/search">
         <SearchIcon alt="search" />
-      </div>
+      </NavButton>
     </nav>
   );
 }

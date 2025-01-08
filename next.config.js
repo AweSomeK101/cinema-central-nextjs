@@ -25,6 +25,16 @@ const nextConfig = {
 
     return config;
   },
+
+  async redirects() {
+    return [
+      {
+        source: "/",
+        destination: "/movies",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;

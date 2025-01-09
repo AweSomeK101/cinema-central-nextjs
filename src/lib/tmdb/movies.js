@@ -1,4 +1,5 @@
-import { TMDB_BASE_URL, TMBD_TOKEN, TMDB_URL_REGION } from "../Constants";
+import { apiFetch } from "@/lib/api-method";
+import { TMDB_BASE_URL, TMBD_TOKEN, TMDB_URL_REGION } from "@/lib/Constants";
 
 const options = {
   method: "GET",
@@ -9,13 +10,7 @@ const options = {
 };
 
 export async function getNowPlayingMovies() {
-  const res = await fetch(`${TMDB_BASE_URL}/movie/now_playing?${TMDB_URL_REGION}`, options);
+  const data = await apiFetch(`${TMDB_BASE_URL}/movie/now_playing?${TMDB_URL_REGION}`, options);
 
-  if (!res.ok) {
-    console.log(res);
-    throw new Error("Something went wrong");
-  }
-
-  const data = await res.json();
   return data.results || [];
 }

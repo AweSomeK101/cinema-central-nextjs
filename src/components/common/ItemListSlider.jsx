@@ -1,3 +1,4 @@
+import { TMDB_IMAGE_URL } from "@/lib/Constants";
 import { CardCarousel, CardCarouselItem } from "../utils/Carousel";
 import ItemCard from "./ItemCard";
 
@@ -8,9 +9,10 @@ function ItemListSlider({ items }) {
         items.map((item, index) => (
           <CardCarouselItem key={index}>
             <ItemCard
-              image={item.image}
+              slug={`/movies/${item.id}`}
+              image={`${TMDB_IMAGE_URL}/w185${item.poster_path}`}
               primaryText={item.title}
-              secondaryText={item.year}
+              secondaryText={item.release_date?.split("-")[0]}
               size="sm"
             />
           </CardCarouselItem>

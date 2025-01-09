@@ -1,23 +1,14 @@
 import SectionList from "../common/SectionList";
+import { getNowPlayingMovies } from "@/lib/tmdb";
 
-const MOVIES = [
-  { title: "Whiplash", year: "2014", image: "/posters/whiplash.jpg" },
-  { title: "Whiplash", year: "2014", image: "/posters/whiplash.jpg" },
-  { title: "Whiplash", year: "2014", image: "/posters/whiplash.jpg" },
-  { title: "Whiplash", year: "2014", image: "/posters/whiplash.jpg" },
-  { title: "Whiplash", year: "2014", image: "/posters/whiplash.jpg" },
-  { title: "Whiplash", year: "2014", image: "/posters/whiplash.jpg" },
-  { title: "Whiplash", year: "2014", image: "/posters/whiplash.jpg" },
-  { title: "Whiplash", year: "2014", image: "/posters/whiplash.jpg" },
-  { title: "Whiplash", year: "2014", image: "/posters/whiplash.jpg" },
-];
+async function Movies() {
+  const nowPlayingMovies = await getNowPlayingMovies();
 
-function Movies() {
   return (
     <div>
-      <SectionList title="Now Playing" items={MOVIES} />
-      <SectionList title="Popular Movies" items={MOVIES} />
-      <SectionList title="Trending Movies" items={MOVIES} />
+      <SectionList title="Now Playing" items={nowPlayingMovies} />
+      {/* <SectionList title="Popular Movies" items={MOVIES} /> */}
+      {/* <SectionList title="Trending Movies" items={MOVIES} /> */}
     </div>
   );
 }

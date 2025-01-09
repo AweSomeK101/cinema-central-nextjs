@@ -14,3 +14,21 @@ export async function getNowPlayingMovies() {
 
   return data.results || [];
 }
+
+export async function getPopularMovies() {
+  const data = await apiFetch(`${TMDB_BASE_URL}/movie/popular?${TMDB_URL_REGION}`, options);
+
+  return data.results || [];
+}
+
+export async function getTopRatedMovies() {
+  const data = await apiFetch(`${TMDB_BASE_URL}/movie/top_rated?${TMDB_URL_REGION}`, options);
+
+  return data.results || [];
+}
+
+export async function getUpcomingMovies() {
+  const data = await apiFetch(`${TMDB_BASE_URL}/movie/upcoming?${TMDB_URL_REGION}`, options);
+
+  return data.results || [];
+}

@@ -12,6 +12,10 @@
   body {
     @apply bg-secondary text-white min-h-screen flex flex-col;
   }
+
+  a {
+    @apply hover:text-accent hover:font-medium;
+  }
 }
 
 @layer utilities {
@@ -32,9 +36,6 @@
   .section-underline {
     @apply relative before:h-[2px] before:absolute before:bottom-0 before:left-0 before:-right-4 before:bg-gray-300;
   }
-}
-
-@layer components {
   .current-page {
     @apply relative;
   }
@@ -42,6 +43,9 @@
     @apply absolute bg-accent h-1 sm:w-1 sm:h-full w-full right-0 top-0 sm:bottom-0;
     content: "";
   }
+}
+
+@layer components {
   .line-clamp {
     display: -webkit-box;
     -webkit-line-clamp: 3;

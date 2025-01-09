@@ -1,6 +1,7 @@
 import { CardCarousel, CardCarouselItem } from "@/components/utils/Carousel";
 import { Tabs } from "@/components/utils/Tabs";
 import ItemCard from "../ItemCard";
+import { TMDB_IMAGE_URL } from "@/lib/Constants";
 
 function handleCreditsObj(credits) {
   if (!credits) return [];
@@ -24,12 +25,12 @@ function CreditsList({ credits }) {
 function Credits({ creditList }) {
   return (
     <CardCarousel>
-      {creditList.map((credit, index) => (
-        <CardCarouselItem key={index}>
+      {creditList.slice(0, 12).map((credit) => (
+        <CardCarouselItem key={credit.credit_id}>
           <ItemCard
-            image={credit.image}
+            image={`${TMDB_IMAGE_URL}/original${credit.profile_path}`}
             primaryText={credit.name}
-            secondaryText={credit.role}
+            secondaryText={credit.job || credit.character}
             size="xs"
           />
         </CardCarouselItem>

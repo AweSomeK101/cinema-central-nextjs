@@ -17,17 +17,37 @@ const SIMILAR = [
   { title: "The Bear", year: "2022", image: "/posters/the-bear.jpg" },
 ];
 
-function MovieDetail() {
+function MovieDetail({ movie }) {
+  const movieDetails = {
+    poster_path: movie.poster_path,
+    title: movie.title,
+    release_year: movie.release_date?.split("-")[0],
+    runtime: movie.runtime,
+    overview: movie.overview,
+    genres: movie.genres,
+    language: movie.original_language.toUpperCase(),
+    imdb: movie.imdb_id,
+    website: movie.homepage,
+    director: movie.credits?.crew
+      .filter((c) => c.job.toLowerCase() === "director")
+      .map((d) => d.name)
+      .join(", "),
+    cast: movie.credits?.cast
+      .slice(0, 4)
+      .map((c) => c.name)
+      .join(", "),
+  };
+
   return (
     <div className="flex flex-col gap-6">
-      <DetailHero />
+      <DetailHero details={movieDetails} />
 
       <SectionLayout title="Credits">
-        <CreditsList credits={CREDITS} />
+        <CreditsList credits={movie.credits} />
       </SectionLayout>
 
       <SectionLayout title="Similar">
-        <SimilarList similars={SIMILAR} />
+        <SimilarList similars={movie.similar?.results} type="movies" />
       </SectionLayout>
     </div>
   );

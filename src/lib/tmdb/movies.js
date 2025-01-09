@@ -38,3 +38,12 @@ export async function getUpcomingMovies() {
 
   return data.results || [];
 }
+
+export async function getMovieDetail(id) {
+  const data = await apiFetch(
+    `${TMDB_BASE_URL}/movie/${id}?${TMDB_URL_REGION}&append_to_response=credits,similar`,
+    options
+  );
+
+  return data;
+}

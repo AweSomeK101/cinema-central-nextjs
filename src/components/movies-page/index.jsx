@@ -14,10 +14,10 @@ async function Movies() {
 
   return (
     <div>
-      <SectionList title="Now Playing" items={nowPlayingMovies} />
-      <SectionList title="Popular Movies" items={popularMovies} />
-      <SectionList title="Upcoming" items={upcomingMovies} />
-      <SectionList title="Top Rated Movies" items={topRatedMovies} />
+      <SectionList title="Now Playing" items={nowPlayingMovies} type="movies" />
+      <SectionList title="Popular Movies" items={popularMovies} type="movies" />
+      <SectionList title="Upcoming" items={upcomingMovies} type="movies" />
+      <SectionList title="Top Rated Movies" items={topRatedMovies} type="movies" />
     </div>
   );
 }

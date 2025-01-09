@@ -15,6 +15,12 @@ export async function getNowPlayingMovies() {
   return data.results || [];
 }
 
+export async function getTrendingMovies() {
+  const data = await apiFetch(`${TMDB_BASE_URL}/trending/movie/week?${TMDB_URL_REGION}`, options);
+
+  return data.results || [];
+}
+
 export async function getPopularMovies() {
   const data = await apiFetch(`${TMDB_BASE_URL}/movie/popular?${TMDB_URL_REGION}`, options);
 

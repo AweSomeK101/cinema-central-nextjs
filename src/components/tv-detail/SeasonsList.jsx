@@ -1,3 +1,4 @@
+import { TMDB_IMAGE_URL } from "@/lib/Constants";
 import Image from "next/image";
 
 function SeasonsList({ seasons }) {
@@ -18,7 +19,12 @@ function Season({ season }) {
   return (
     <div className="flex gap-2 shadow-slate-900 shadow rounded p-2 border border-slate-600">
       <div className="min-w-[120px] h-auto relative">
-        <Image src={"/posters/the-bear.jpg"} alt={name} width={100} height={100 / 0.7} />
+        <Image
+          src={`${TMDB_IMAGE_URL}/w154${poster_path}`}
+          alt={name}
+          width={100}
+          height={100 / 0.7}
+        />
       </div>
 
       <div>

@@ -14,6 +14,10 @@ function DetailHero({ details }) {
     cast,
     imdb,
     website,
+    status,
+    next_episode,
+    seasons,
+    created_by,
   } = details;
 
   return (
@@ -32,7 +36,8 @@ function DetailHero({ details }) {
         <div className="text-center sm:text-start">
           <h3 className="text-3xl font-semibold">{title}</h3>
           <p className="text-gray-300 text-sm">
-            {release_year} {runtime}min {language}
+            {release_year} {runtime ? runtime + "min" : ""} {seasons ? seasons + "Seasons" : ""}{" "}
+            {language}
           </p>
         </div>
 
@@ -45,10 +50,28 @@ function DetailHero({ details }) {
               {director}
             </p>
           )}
+          {created_by && (
+            <p>
+              <span className="text-sm text-gray-300">creator: </span>
+              {created_by}
+            </p>
+          )}
           {cast && (
             <p>
               <span className="text-sm text-gray-300">cast: </span>
               {cast}
+            </p>
+          )}
+          {status && (
+            <p>
+              <span className="text-sm text-gray-300">status: </span>
+              {status}
+            </p>
+          )}
+          {next_episode && (
+            <p>
+              <span className="text-sm text-gray-300">next episode: </span>
+              {next_episode}
             </p>
           )}
           <p>

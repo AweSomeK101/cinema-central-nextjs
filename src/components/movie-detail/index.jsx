@@ -3,20 +3,6 @@ import DetailHero from "../common/detail/DetailHero";
 import SimilarList from "../common/detail/SimilarList";
 import SectionLayout from "../common/SectionLayout";
 
-const CREDITS = {
-  cast: [
-    { image: "/posters/whiplash.jpg", name: "John Malkovich", role: "John Doe" },
-    { image: "/posters/whiplash.jpg", name: "John Malkovich", role: "John Doe" },
-    { image: "/posters/whiplash.jpg", name: "John Malkovich", role: "John Doe" },
-  ],
-  crew: [{ image: "/posters/the-bear.jpg", name: "John Ham", role: "John Lam" }],
-};
-
-const SIMILAR = [
-  { title: "Whiplash", year: "2014", image: "/posters/whiplash.jpg" },
-  { title: "The Bear", year: "2022", image: "/posters/the-bear.jpg" },
-];
-
 function MovieDetail({ movie }) {
   const movieDetails = {
     poster_path: movie.poster_path,

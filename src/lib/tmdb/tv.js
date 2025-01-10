@@ -32,3 +32,12 @@ export async function getTopRatedTV() {
 
   return data.results || [];
 }
+
+export async function getTVDetail(id) {
+  const data = await apiFetch(
+    `${TMDB_BASE_URL}/tv/${id}?${TMDB_URL_REGION}&append_to_response=credits,similar`,
+    options
+  );
+
+  return data;
+}

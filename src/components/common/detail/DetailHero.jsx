@@ -55,12 +55,22 @@ function DetailHero({ details }) {
             <span className="text-sm text-gray-300">external: </span>
             <span className="inline-flex gap-2 text-accent">
               {website && (
-                <a href={website} target="_blank">
+                <a
+                  href={website}
+                  target="_blank"
+                  referrerPolicy="no-referrer"
+                  rel="noopener noreferrer"
+                >
                   Website
                 </a>
               )}
               {imdb && (
-                <a href={`https://imdb.com/title/${imdb}`} target="_blank">
+                <a
+                  href={`https://imdb.com/title/${imdb}`}
+                  target="_blank"
+                  referrerPolicy="no-referrer"
+                  rel="noopener noreferrer"
+                >
                   IMDb
                 </a>
               )}

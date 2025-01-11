@@ -1,5 +1,5 @@
 import { TMDB_IMAGE_URL } from "@/lib/Constants";
-import Image from "next/image";
+import Image from "@/components/utils/FallbackImage";
 
 function SeasonsList({ seasons }) {
   return (

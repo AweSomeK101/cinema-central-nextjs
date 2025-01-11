@@ -1,4 +1,5 @@
-import Image from "next/image";
+import Image from "@/components/utils/FallbackImage";
+import { FALLBACK_POSTER_IMAGE } from "@/lib/Constants";
 import Link from "next/link";
 
 const SIZE_MAP = {
@@ -8,7 +9,14 @@ const SIZE_MAP = {
   lg: [240, 240 / 0.7],
 };
 
-function ItemCard({ size = "md", slug = "", primaryText, secondaryText, image }) {
+function ItemCard({
+  size = "md",
+  slug = "",
+  primaryText,
+  secondaryText,
+  image,
+  fallback = FALLBACK_POSTER_IMAGE,
+}) {
   const imgSize = SIZE_MAP[size];
 
   return (
@@ -20,6 +28,7 @@ function ItemCard({ size = "md", slug = "", primaryText, secondaryText, image })
             alt={primaryText}
             width={imgSize[0]}
             height={imgSize[1]}
+            fallback={fallback}
             className="h-auto w-full"
           />
         </Link>
@@ -29,6 +38,7 @@ function ItemCard({ size = "md", slug = "", primaryText, secondaryText, image })
           alt={primaryText}
           width={imgSize[0]}
           height={imgSize[1]}
+          fallback={fallback}
           className="h-auto w-full"
         />
       )}

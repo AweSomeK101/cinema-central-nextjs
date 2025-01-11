@@ -1,7 +1,7 @@
 import { CardCarousel, CardCarouselItem } from "@/components/utils/Carousel";
 import { Tabs } from "@/components/utils/Tabs";
 import ItemCard from "../ItemCard";
-import { TMDB_IMAGE_URL } from "@/lib/Constants";
+import { FALLBACK_PROFILE_IMAGE, TMDB_IMAGE_URL } from "@/lib/Constants";
 
 function handleCreditsObj(credits) {
   if (!credits) return [];
@@ -28,7 +28,8 @@ function Credits({ creditList }) {
       {creditList.slice(0, 12).map((credit) => (
         <CardCarouselItem key={credit.credit_id}>
           <ItemCard
-            image={`${TMDB_IMAGE_URL}/original${credit.profile_path}`}
+            image={`${TMDB_IMAGE_URL}/w185${credit.profile_path}`}
+            fallback={FALLBACK_PROFILE_IMAGE}
             primaryText={credit.name}
             secondaryText={credit.job || credit.character}
             size="xs"

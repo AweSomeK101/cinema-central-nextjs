@@ -1,5 +1,5 @@
-import { TMDB_IMAGE_URL } from "@/lib/Constants";
-import Image from "next/image";
+import { FALLBACK_POSTER_IMAGE, TMDB_IMAGE_URL } from "@/lib/Constants";
+import Image from "@/components/utils/FallbackImage";
 
 function DetailHero({ details }) {
   const {
@@ -25,6 +25,7 @@ function DetailHero({ details }) {
       <div className="mx-auto sm:mx-0 max-w-[240px]">
         <Image
           src={`${TMDB_IMAGE_URL}/w342${poster_path}`}
+          fallback={FALLBACK_POSTER_IMAGE}
           alt={title}
           width={240}
           height={240 / 0.7}

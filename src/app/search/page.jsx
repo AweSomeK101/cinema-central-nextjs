@@ -1,7 +1,9 @@
 import Search from "@/components/search-page";
 
-function SearchPage() {
-  return <Search />;
+async function SearchPage({ searchParams }) {
+  const params = await searchParams;
+
+  return <Search params={params} />;
 }
 
 export default SearchPage;

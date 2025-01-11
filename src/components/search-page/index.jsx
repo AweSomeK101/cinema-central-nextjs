@@ -1,26 +1,21 @@
+import { getSearchResults } from "@/lib/tmdb";
 import ResultGrid from "./ResultGrid";
 import SearchBar from "./SearchBar";
+import Pagination from "./Pagination";
+import { Suspense } from "react";
 
-const RESULTS = [
-  { title: "Whiplash", year: "2014", image: "/posters/whiplash.jpg" },
-  { title: "the bear", year: "2022", image: "/posters/the-bear.jpg" },
-  { title: "Whiplash", year: "2014", image: "/posters/whiplash.jpg" },
-  { title: "the bear", year: "2022", image: "/posters/the-bear.jpg" },
-  { title: "Whiplash", year: "2014", image: "/posters/whiplash.jpg" },
-  { title: "the bear", year: "2022", image: "/posters/the-bear.jpg" },
-  { title: "Whiplash", year: "2014", image: "/posters/whiplash.jpg" },
-  { title: "the bear", year: "2022", image: "/posters/the-bear.jpg" },
-  { title: "Whiplash", year: "2014", image: "/posters/whiplash.jpg" },
-  { title: "the bear", year: "2022", image: "/posters/the-bear.jpg" },
-];
+async function Search({ params }) {
+  const queryResult = await getSearchResults(params.q, params.page);
 
-function Search() {
   return (
     <div>
       <SearchBar />
-      <div className="mt-10">
-        <ResultGrid items={RESULTS} />
+      <div className="my-10">
+        <Suspense fallback={<p>Loading...</p>}>
+          <ResultGrid items={queryResult.results} />
+        </Suspense>
       </div>
+      <Pagination totalPages={queryResult.total_pages} />
     </div>
   );
 }

@@ -6,10 +6,12 @@ import { FALLBACK_PROFILE_IMAGE, TMDB_IMAGE_URL } from "@/lib/Constants";
 function handleCreditsObj(credits) {
   if (!credits) return [];
 
-  return Object.keys(credits).map((key) => ({
-    name: key,
-    component: <Credits creditList={credits[key]} />,
-  }));
+  return Object.keys(credits)
+    .filter((key) => credits[key].length > 0)
+    .map((key) => ({
+      name: key,
+      component: <Credits creditList={credits[key]} />,
+    }));
 }
 
 function CreditsList({ credits }) {

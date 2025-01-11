@@ -2,9 +2,8 @@ export async function apiFetch(url, options) {
   const response = await fetch(url, options);
 
   if (!response.ok) {
-    Promise.reject({ status: response.status, statusText: response.statusText });
+    throw new Error(`Error ${response.status} - ${response.statusText}`);
   }
 
-  const responseData = await response.json();
-  return Promise.resolve(responseData);
+  return await response.json();
 }

@@ -1,12 +1,9 @@
-import { TMDB_IMAGE_URL } from "@/lib/Constants";
+import { FALLBACK_POSTER_IMAGE, TMDB_IMAGE_URL } from "@/lib/Constants";
 import Image from "@/components/utils/FallbackImage";
 
 function SeasonsList({ seasons }) {
   return (
-    <div
-      className="grid gap-4"
-      style={{ gridTemplateColumns: "repeat(auto-fit, minmax(600px, 1fr))" }}
-    >
+    <div className="grid grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(600px,1fr))] gap-4">
       {seasons.map((season) => (
         <Season season={season} key={season.id} />
       ))}
@@ -21,6 +18,7 @@ function Season({ season }) {
       <div className="min-w-[120px] h-auto relative">
         <Image
           src={`${TMDB_IMAGE_URL}/w154${poster_path}`}
+          fallback={FALLBACK_POSTER_IMAGE}
           alt={name}
           width={100}
           height={100 / 0.7}

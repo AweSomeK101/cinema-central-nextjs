@@ -9,7 +9,7 @@ async function TV() {
 
   return (
     <div>
-      <SectionList title="Treding Shows" items={trendingTv} type="tv" />
+      <SectionList title="Trending Shows" items={trendingTv} type="tv" />
       <SectionList title="Popular Shows" items={populatTv} type="tv" />
       <SectionList title="On The Air" items={onTheAirTv} type="tv" />
       <SectionList title="Top Rated Shows" items={topRatedTv} type="tv" />

@@ -1,5 +1,6 @@
 import CreditsList from "../common/detail/CreditsList";
 import DetailHero from "../common/detail/DetailHero";
+import ReviewsList from "../common/detail/ReviewsList";
 import SimilarList from "../common/detail/SimilarList";
 import SectionLayout from "../common/SectionLayout";
 import SeasonsList from "./SeasonsList";
@@ -37,6 +38,10 @@ function TvDetail({ tv }) {
 
       <SectionLayout title="Similar">
         <SimilarList similars={tv.similar?.results} />
+      </SectionLayout>
+
+      <SectionLayout title="Reviews">
+        <ReviewsList reviews={tv.reviews} />
       </SectionLayout>
     </div>
   );

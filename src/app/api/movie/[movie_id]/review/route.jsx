@@ -1,7 +1,7 @@
 import dbClient from "@/lib/database";
 
 export async function GET(request, { params }) {
-  const movie_id = (await params).movie_id;
+  const movie_id = (await params).movie_id.toString();
   let body = {},
     options = { status: 200 };
 
@@ -21,12 +21,19 @@ export async function GET(request, { params }) {
 
 export async function POST(request, { params }) {
   const movie_id = (await params).movie_id;
-  const body = await request.json();
-  let options = { status: 200 };
+  const { name, review } = await request.json();
+
+  if (!name || !review) return new Response(null, { status: 400 });
+
+  let body = {},
+    options = { status: 200 };
 
   try {
     const db = (await dbClient.connect()).db();
-    await db.collection("reviews").insertOne(body);
+    const res = await db
+      .collection("reviews")
+      .insertOne({ name, review, movie_id, date: new Date() });
+    body = { ...body, _id: res.insertedId.toString() };
   } catch (error) {
     console.log("POST review error", error);
     options = { ...options, status: 500 };
@@ -34,5 +41,5 @@ export async function POST(request, { params }) {
     dbClient.close();
   }
 
-  return new Response(null, options);
+  return Response.json(body, options);
 }

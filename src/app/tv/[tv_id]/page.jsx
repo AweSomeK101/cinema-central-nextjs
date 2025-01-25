@@ -12,9 +12,9 @@ export async function generateMetadata({ params }) {
 
 async function TvDetailPage({ params }) {
   const tv_id = (await params).tv_id;
-  const tv = await getTVDetail(tv_id);
+  const [tv, reviews] = await Promise.all([getTVDetail(tv_id), getReviews(tv_id)]);
 
-  return <TvDetail tv={tv} />;
+  return <TvDetail tv={{ ...tv, reviews }} />;
 }
 
 export default TvDetailPage;

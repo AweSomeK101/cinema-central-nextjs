@@ -1,14 +1,19 @@
-import React from "react";
+import CreateReview from "./CreateReview";
 
 function ReviewsList({ reviews }) {
-  if (!reviews || reviews.length < 1) return <p>No reviews yet</p>;
-
   return (
-    <div className="flex flex-col gap-2">
-      {reviews.map((review) => (
-        <Review key={review._id} name={review.name} date={review.date} review={review.review} />
-      ))}
-    </div>
+    <>
+      <CreateReview />
+      <div className="flex flex-col gap-2">
+        {!reviews || reviews.length < 1 ? (
+          <p>No reviews yet</p>
+        ) : (
+          reviews.map((review) => (
+            <Review key={review._id} name={review.name} date={review.date} review={review.review} />
+          ))
+        )}
+      </div>
+    </>
   );
 }
 

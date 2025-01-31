@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Cinema Central
 
-## Getting Started
+A comprehensive movie database application built with Next.js that provides users with access to detailed information about movies using TMDB API integration.
 
-First, run the development server:
+## Features
+
+- Browse and search for movies
+- View detailed movie information
+- Server-side rendering for optimal performance
+- MongoDB integration for data persistence
+- API route handlers for efficient data fetching
+
+## Tech Stack
+
+- **Frontend Framework:** Next.js
+- **Database:** MongoDB
+- **API Integration:** TMDB (The Movie Database)
+- **Server Features:**
+  - Next.js Server Actions
+  - API Route Handlers
+  - Server-Side Rendering
+
+## Prerequisites
+
+Before you begin, ensure you have:
+
+- Node.js installed (version 14 or higher)
+- MongoDB instance (local or Atlas)
+- TMDB API access token
+
+## Environment Variables
+
+Create a `.env.local` file in the root directory with the following variables:
+
+```plaintext
+TMDB_BEARER_TOKEN=your_tmdb_token_here
+MONGODB_URI=your_mongodb_connection_string
+BASE_URL=your_api_route_handler_url
+```
+
+## Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/AweSomeK101/cinema-central-nextjs.git
+```
+
+2. Navigate to the project directory:
+
+```bash
+cd cinema-central-nextjs
+```
+
+3. Install dependencies:
+
+```bash
+npm install
+```
+
+4. Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## API Integration
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+This project uses the TMDB (The Movie Database) API for fetching movie data. Ensure you have:
 
-## Learn More
+1. Created an account on TMDB
+2. Generated an API bearer token
+3. Added the token to your environment variables
 
-To learn more about Next.js, take a look at the following resources:
+## Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The project is configured for easy deployment on Vercel. For other platforms, follow their respective deployment guides for Next.js applications.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Live Demo: [Cinema Central](https://cinema-central.vercel.app/)
 
-## Deploy on Vercel
+## Contributing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## License
+
+This project is open source and available under the [MIT License](LICENSE).

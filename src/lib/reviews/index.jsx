@@ -3,7 +3,7 @@ import { APP_BASE_URL } from "../Constants";
 
 export async function getReviews(id) {
   try {
-    const data = await apiFetch(`${APP_BASE_URL}/api/movie/${id}/review`, {
+    const data = await apiFetch(`${APP_BASE_URL}/api/reviews?media_id=${id}`, {
       next: {
         tags: ["reviews"],
       },

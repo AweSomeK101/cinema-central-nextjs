@@ -7,7 +7,7 @@ export async function GET(request, { params }) {
 
   try {
     const db = (await dbClient.connect()).db();
-    const reviews = await db.collection("reviews").find({ movie_id }).toArray();
+    const reviews = await db.collection("reviews").find({ media_id: movie_id }).toArray();
     body = reviews;
   } catch (error) {
     console.log("GET review error: ", error);

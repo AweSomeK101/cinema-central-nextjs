@@ -10,6 +10,9 @@ const options = {
     accept: "application/json",
     Authorization: `Bearer ${TMBD_TOKEN}`,
   },
+  next: {
+    revalidate: 0,
+  },
 };
 
 export async function getSearchResults(query, page = 1) {

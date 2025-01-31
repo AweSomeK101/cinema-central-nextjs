@@ -7,6 +7,9 @@ const options = {
     accept: "application/json",
     Authorization: `Bearer ${TMBD_TOKEN}`,
   },
+  next: {
+    revalidate: 60 * 60 * 24,
+  },
 };
 
 export async function getNowPlayingMovies() {
@@ -28,7 +31,10 @@ export async function getPopularMovies() {
 }
 
 export async function getTopRatedMovies() {
-  const data = await apiFetch(`${TMDB_BASE_URL}/movie/top_rated?${TMDB_URL_REGION}`, options);
+  const data = await apiFetch(`${TMDB_BASE_URL}/movie/top_rated?${TMDB_URL_REGION}`, {
+    ...options,
+    next: { revalidate: 60 * 60 * 24 * 30 },
+  });
 
   return data.results || [];
 }
@@ -42,7 +48,7 @@ export async function getUpcomingMovies() {
 export async function getMovieDetail(id) {
   const data = await apiFetch(
     `${TMDB_BASE_URL}/movie/${id}?${TMDB_URL_REGION}&append_to_response=credits,similar`,
-    options
+    { ...options, next: undefined }
   );
 
   return data;
